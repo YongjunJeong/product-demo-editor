@@ -1,0 +1,4 @@
+interface:
+  display_name: "Product Demo Editor"
+  short_description: "Draft English captions and explain edits for local demo videos"
+  default_prompt: "Use $product-demo-editor to draft English captions and a shorter edit of my local product-demo video."

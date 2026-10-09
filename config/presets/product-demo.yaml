@@ -1,0 +1,9 @@
+preset: product-demo
+silence_threshold_db: -35
+silence_min_duration: 0.7
+scene_threshold: 0.3
+scene_width: 640
+transcribe: true
+language: ko
+model: small
+cpu_threads: 4

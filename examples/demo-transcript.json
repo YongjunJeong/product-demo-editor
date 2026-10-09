@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "time_base": "source_seconds",
+  "status": "completed",
+  "language": "ko",
+  "segments": [
+    {"id": 1, "start": 2.1, "end": 3.0, "text": "고객 목록을, 아니 다시 시작하겠습니다."},
+    {"id": 2, "start": 3.5, "end": 4.5, "text": "고객 목록을 엽니다."},
+    {"id": 3, "start": 5.5, "end": 7.0, "text": "조건을 추가하고 저장합니다."}
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "engine": "authored-synthetic-example (no LLM call)",
+  "segments": [
+    {"id": 1, "text": "The customer list... Let me start again."},
+    {"id": 2, "text": "Open the customer list."},
+    {"id": 3, "text": "Add a condition and save."}
+  ],
+  "proposals": [
+    {
+      "id": 1,
+      "kind": "remove_speech",
+      "segment_ids": [1],
+      "rationale": "Remove the abandoned take; segment 2 gives the complete instruction.",
+      "confidence": "high",
+      "requires_visual_review": true
+    }
+  ],
+  "uncertainties": [
+    "The video and annotated transcript are authored synthetic fixtures, not a model quality test.",
+    "Screen-action preservation still needs human review on actual recordings."
+  ]
+}

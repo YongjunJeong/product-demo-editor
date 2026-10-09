@@ -1,0 +1,5 @@
+terms:
+  - source: 세그먼트
+    target: segment
+  - source: API
+    target: API

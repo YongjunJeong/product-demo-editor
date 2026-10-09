@@ -1,0 +1,4 @@
+max_chars_per_line: 42
+min_duration: 1.0
+max_duration: 7.0
+max_chars_per_second: 20.0
