@@ -1,4 +1,4 @@
-# Local execution architecture and decisions
+# How the local editor works
 
 ## Local preprocessing
 
@@ -12,7 +12,7 @@ FFmpeg downsizes frames for pixel-change detection. This is not visual semantic 
 Faster-whisper runs on CPU/int8 with Korean language, VAD, beam size 5 and word timestamps.
 The small model is a starting point, not a claim of optimal Korean quality or Mac speed.
 
-## Data over opaque calls
+## Validation and saved files
 
 Pydantic validates configuration, intervals and transcript structure. JSON artifacts use
 source-relative seconds, half-open intervals and a schema version. Missing audio and
@@ -20,9 +20,9 @@ user-disabled ASR produce explicit skipped states, not fabricated transcripts.
 
 The pipeline writes atomic checkpoints and a source/config/version manifest. Resume checks
 artifact hashes. Models and ASR are optional for deterministic analysis. A missing ASR model
-is an actionable error. No fallback to remote inference is allowed.
+stops analysis with instructions to prepare it. No fallback to remote inference is allowed.
 
-## Boundaries deferred deliberately
+## Editing and export
 
 M4 compiles approved candidates into a non-overlapping output timeline, remaps subtitle
 times, and rejects malformed or conflicting decisions.
@@ -34,8 +34,8 @@ CapCut remains an optional export adapter. Agent-hosted translation and whole-se
 RTF = wall processing seconds / source video seconds. It includes hashing, inspection,
 ASR model loading and preprocessing, but excludes separate package/model installation.
 Stage times include necessary audio extraction in the stage that first requests audio.
-Repeated runs record cached stages and preserve prior metric files. External inference
-cost is zero in M1 by architecture, not a measurement of electricity or developer usage.
+Repeated runs record cached stages and preserve prior metric files. M1 makes no external inference calls.
+Its cost record excludes electricity and the developer’s agent usage.
 
 ## M2 manual translation exchange
 
@@ -135,7 +135,7 @@ from approved artifacts. Analysis/render callbacks expose stage labels, and the 
 elapsed wall time without claiming a percentage or ETA. Only one server per work directory
 and one editing tab are supported.
 
-## Agent skill transition
+## Agent integration
 
 The host agent reads compact text context and writes a bound response with complete English
 translations and explained proposals. The runtime makes no provider calls. Host inference

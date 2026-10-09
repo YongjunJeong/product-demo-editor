@@ -92,9 +92,9 @@ video-agent render work/approved-plan.json --output work/final-v1 --resume
 - 색 공간/HDR 보존, 다중 오디오 선택, 긴 4K 영상, 수백 개 컷의 성능은 미검증입니다.
 - 배속은 [M5 워크플로](speed.md)에서 지원합니다. 자동 줌·CapCut 프로젝트 생성은 아직 없습니다.
 
-자막 렌더링에는 libass가 포함된 FFmpeg가 필요합니다. 이 Mac에 `ffmpeg-full`을 설치했고
-앱이 해당 경로를 자동으로 찾습니다. 기본 FFmpeg와 셸 설정은 교체하지 않았습니다.
-다른 환경에서는 `subtitles` 필터를 지원하는 FFmpeg를 PATH에 준비하세요.
+자막 렌더링에는 libass가 포함된 FFmpeg가 필요합니다. macOS에서는 Homebrew의
+`ffmpeg-full` 설치 경로를 자동으로 찾습니다. 다른 환경에서는 `subtitles` 필터를
+지원하는 FFmpeg를 PATH에 준비하세요.
 
 ## 검증용 영상
 

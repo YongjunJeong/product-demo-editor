@@ -15,18 +15,17 @@ status only near the top of a long page, making a working button appear unrespon
 The source video, transcript, product names and local paths are not published here. These
 aggregate measurements are one development case, not a general performance benchmark.
 
-## Design response
+## What changed
 
-Keep precise media execution in Python/FFmpeg, and move translation and editorial proposals
-into a reusable Codex/Claude Code skill. The host model consumes compact text context and
-returns a schema-validated response. It does not directly mutate the timeline or issue an
-opaque FFmpeg command.
+Media processing stayed in Python/FFmpeg. A Codex/Claude Code skill now handles translation
+and editing proposals. The host model reads the exported text and returns a response that
+the CLI validates. It does not edit the timeline or write FFmpeg commands.
 
 The skill's output includes reasons, uncertain interpretations and screen-review flags.
 The importer binds it to source evidence, checks complete translation IDs and compiles
 selected edits on a CFR grid. Approval covers the exact plan and compiled output timeline.
-The UI remains useful for human review; maintaining a separate model-routing app is unnecessary
-for the first personal-use workflow.
+The UI lets the user review proposals. Translation runs in the existing agent conversation,
+so the editor does not need its own model server.
 
 ## Concrete corrections
 
@@ -41,18 +40,17 @@ for the first personal-use workflow.
 
 ## Tradeoffs and evaluation
 
-A host-agent skill is suitable for a personal editing workflow and a reviewable portfolio.
-It requires a compatible agent host and is not a standalone consumer video editor. LLM
-reasoning may be remote, even while media processing remains local. A provider-neutral JSON
-boundary keeps the execution tool usable if the host changes.
+The workflow requires a compatible agent host. The local UI handles review and rendering,
+but does not generate translations on its own. The host may use a remote model, while
+media processing remains local. Both hosts exchange the same JSON files with the CLI.
 
 Text-only evidence makes editorial proposals possible but does not prove screen-action
-preservation. A duration target is not an optimization score: deleting essential steps is
-worse than missing the target. Evaluate translation corrections, proposal acceptance,
+preservation. A shorter video still needs to show every essential step.
+Further evaluation should track translation corrections, proposal acceptance,
 screen-action loss and active human review time on repeated real recordings.
 
-The synthetic example uses authored input and an authored model response. It demonstrates
-reproducibility and safety properties, not LLM quality. Codex is the first implemented host;
+The synthetic example uses authored input and an authored model response. It exercises
+validation and rendering without calling an LLM. Codex is the first implemented host;
 Claude Code compatibility is an instruction/CLI design until independently live-tested.
 
 ## First host-agent draft check

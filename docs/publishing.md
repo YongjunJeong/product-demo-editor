@@ -2,7 +2,7 @@
 
 공개 후보는 `scripts/package_portfolio.py`가 생성하는 ZIP의 파일 목록입니다.
 게시할 저장소의 이름과 공개 범위가 정해지면 파일 목록을 확인한 뒤 커밋하고 푸시합니다.
-이 프로젝트의 준비 작업은 GitHub 게시나 원격 저장소 생성까지 수행하지 않습니다.
+현재 공개 저장소는 [YongjunJeong/product-demo-editor](https://github.com/YongjunJeong/product-demo-editor)입니다.
 
 ## 포함할 것
 
@@ -45,8 +45,7 @@ git ls-files --cached --others --exclude-standard
 
 Git 루트가 이 프로젝트 폴더인지 확인합니다. 상위 Downloads나 다른 프로젝트가 나오면
 그 저장소에서 일괄 추가하지 마세요. 공개 ZIP을 별도 폴더에 풀어 독립 저장소로 만들 수도 있습니다.
-로컬 환경에서 전체 테스트가 통과해도 GitHub Actions의 성공을 미리 주장하지 않습니다.
-게시 후 Actions 결과를 확인하고, 실패하면 지원 범위와 검증 기록을 갱신하세요.
+푸시한 커밋의 GitHub Actions 결과도 확인하세요. 로컬 테스트와 실행 환경이 다를 수 있습니다.
 
 ## 저장소 소개 예시
 
@@ -54,5 +53,5 @@ Git 루트가 이 프로젝트 폴더인지 확인합니다. 상위 Downloads나
 
 주요 기술: Python, FFmpeg, Pydantic, faster-whisper, HTML/CSS/JavaScript.
 포트폴리오 설명에서는 원본 보존, 검증 가능한 에이전트 응답, 발화 보호와 승인된 실행을 중심으로 설명합니다.
-개인 기여 범위와 에이전트 활용 범위는 작성자가 실제 작업 내역에 맞춰 기재하세요.
-작업 시간 절감과 모델 정확도는 비교 평가 전까지 성과 수치로 주장하지 않습니다.
+직접 설계·구현한 부분과 에이전트의 도움을 받은 부분은 실제 작업 내역에 맞춰 적으세요.
+작업 시간과 모델 정확도는 별도 비교 평가가 필요합니다.

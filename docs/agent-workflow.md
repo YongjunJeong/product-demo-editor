@@ -1,8 +1,8 @@
 # Agent-assisted product-demo editing
 
-Codex or Claude Code is the host reasoning engine. There is no nested agent process,
-provider SDK or model-routing server. The skill is provider-neutral workflow guidance;
-FFmpeg, faster-whisper and the Python CLI remain the execution layer.
+Codex or Claude Code reads the exported text and writes translations and editing proposals.
+The skill calls the existing Python CLI for analysis, validation and rendering with
+FFmpeg and faster-whisper. It does not start another agent process or call a model API.
 
 ## Install
 
@@ -30,7 +30,7 @@ Example request in the host:
 Read the [skill](../skills/product-demo-editor/SKILL.md) and its
 [exchange contract](../skills/product-demo-editor/references/exchange.md).
 
-## Boundaries
+## Data handling and review
 
 - Raw media, transcription and rendering stay local. Preparing ASR weights downloads models.
 - Reading text context into Codex/Claude follows that host's inference and data policies;
@@ -56,7 +56,7 @@ Boundary-overlapping silence now subtracts protected intervals, leaving eligible
 candidates rather than discarding the whole wait. CFR quantization stays conservative.
 Existing schema 1.0/1.1 approval payloads retain their previous serialization.
 
-## Reproducible demo and evidence
+## Synthetic demo
 
 ```sh
 python scripts/demo_agent.py --output work/showcase
