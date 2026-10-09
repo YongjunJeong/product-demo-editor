@@ -13,8 +13,8 @@ jobs:
           - {os: ubuntu-latest, python: '3.12', extras: 'dev,asr'}
           - {os: macos-14, python: '3.13', extras: dev}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: ${{ matrix.python }}
       - if: runner.os == 'Linux'
